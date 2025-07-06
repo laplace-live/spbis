@@ -36,7 +36,7 @@ export function inferProtobufSchema(decodeResult: DecodeResult): string {
             fieldInfo.nested = nestedResult
             fieldInfo.inferredType = `Message${part.index}`
           }
-        } catch (e) {
+        } catch {
           // Not a valid nested message, keep original type
         }
       }
@@ -147,7 +147,7 @@ function generateProtoSchemaFromResult(
             fieldInfo.nested = nestedResult
             fieldInfo.inferredType = `Message${part.index}`
           }
-        } catch (e) {
+        } catch {
           // Not a valid nested message
         }
       }
