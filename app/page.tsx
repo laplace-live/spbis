@@ -31,7 +31,14 @@ export default function Home() {
 
   return (
     <div className='space-y-3 p-4'>
-      <h1 className='text-2xl font-bold'>LAPLACE Schemaless Protocol Buffers Inspecting System</h1>
+      <h1 className='text-2xl font-bold'>LAPLACE SPBIS</h1>
+
+      <p>
+        Schemaless Protocol Buffers Inspecting System.{' '}
+        <a href='https://github.com/laplace-live/spbis' className='text-ac'>
+          View Source
+        </a>
+      </p>
 
       <Textarea
         placeholder='Paste Protobuf or gRPC request as hex or base64'
