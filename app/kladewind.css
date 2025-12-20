@@ -1,10 +1,12 @@
 /* https://tailwindcss.com/docs/theme#default-theme-variable-reference */
+
 /* prettier-ignore */
-@theme inline static {
+/* biome-ignore format: keep long lines for better readability */
+@theme {
   /* Typography */
-  --font-sans: ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: ui-sans-serif, system-ui, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   /* Colors */
   --color-fg: oklch(clamp(0%, calc(var(--fg-l) + var(--lch-l-offset)), 100%) var(--primary-c) var(--primary-h));
@@ -291,8 +293,8 @@
   --color-stone-950: color-mix(in oklch, oklch(0.147 0.004 49.25) var(--mix-factor), var(--mix-base));
 
   /* Shadows */
-  --shadow-2xs: 0 1px color-mix(in oklch, var(--color-fg) 5%, var(--color-ac) 2.5%);
-  --shadow-xs: 0 1px 2px 0 color-mix(in oklch, var(--color-fg) 5%, var(--color-ac) 2.5%);
+  --shadow-2xs: 0 1px color-mix(in oklch, var(--color-black) 5%, var(--color-ac) 2.5%);
+  --shadow-xs: 0 1px 2px 0 color-mix(in oklch, var(--color-black) 7.5%, var(--color-ac) 2.5%);
   --shadow-sm: 0 1px 3px 0 color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%), 0 1px 2px -1px color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%);
   --shadow-md: 0 4px 6px -1px color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%), 0 2px 4px -2px color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%);
   --shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%), 0 4px 6px -4px color-mix(in oklch, var(--color-fg) 10%, var(--color-ac) 5%);
@@ -321,6 +323,40 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
+  /* Make our system compatible with dumb-ass shad/cn variables for brainless external components */
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-fg);
+  --color-card: var(--color-background);
+  --color-card-foreground: var(--color-foreground);
+  --color-popover: var(--color-background);
+  --color-popover-foreground: var(--color-foreground);
+  --color-primary: var(--color-foreground);
+  --color-primary-foreground: color-mix(in oklch, var(--color-foreground) 5%, transparent);
+  --color-secondary: color-mix(in oklch, var(--color-foreground) 30%, transparent);
+  --color-secondary-foreground: var(--color-foreground);
+  --color-muted: color-mix(in oklch, var(--color-foreground) 5%, transparent);
+  --color-muted-foreground: color-mix(in oklch, var(--color-foreground) 60%, transparent);
+  --color-accent: color-mix(in oklch, var(--color-ac) 30%, transparent);
+  --color-accent-foreground: var(--color-ac);
+  --color-destructive: color-mix(in oklch, var(--color-rose-500) 20%, transparent);
+  --color-destructive-foreground: var(--color-rose-500);
+  --color-border: color-mix(in oklch, var(--color-foreground) 30%, transparent);
+  --color-input: var(--color-border);
+  --color-ring: var(--color-border);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--color-muted);
+  --color-sidebar-foreground: var(--color-foreground);
+  --color-sidebar-primary: var(--color-primary);
+  --color-sidebar-primary-foreground: var(--color-primary-foreground);
+  --color-sidebar-accent: var(--color-accent);
+  --color-sidebar-accent-foreground: var(--color-accent-foreground);
+  --color-sidebar-border: var(--color-border);
+  --color-sidebar-ring: var(--color-ring);
+
   @keyframes accordion-down {
     from {
       height: 0;
@@ -348,13 +384,13 @@
   box-shadow:
     0 0 0 0.5px color-mix(in oklch, var(--color-black) 40%, transparent),
     0 20px 60px 0
-      color-mix(
-        in oklch,
-        color-mix(in oklch, var(--color-ac) 20%, transparent) 60%,
-        color-mix(in oklch, var(--color-black) 20%, transparent)
-      );
+    color-mix(
+      in oklch,
+      color-mix(in oklch, var(--color-ac) 20%, transparent) 60%,
+      color-mix(in oklch, var(--color-black) 20%, transparent)
+    );
   backdrop-filter: saturate(2) blur(40px);
-  @apply z-100 border border-white/40 bg-white/90 outline-none;
+  @apply z-50 border border-white/40 bg-white/90 outline-none;
 
   @variant dark {
     box-shadow:
