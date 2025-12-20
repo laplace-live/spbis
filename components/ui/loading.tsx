@@ -12,7 +12,7 @@ export function Loading({ size, width, className, ...props }: LoadingProps) {
     <span
       data-slot='loading'
       className={cn(
-        'inline-block animate-spin rounded-full border-solid border-[color-mix(in_oklch,currentColor_50%,transparent)] border-r-current align-[-0.125em] supports-[not(color:color-mix(in_oklch,currentColor_50%,transparent))]:border-current supports-[not(color:color-mix(in_oklch,currentColor_50%,transparent))]:border-r-transparent',
+        'inline-block animate-spin rounded-full border-[color-mix(in_oklch,currentColor_50%,transparent)] border-r-current border-solid align-[-0.125em] supports-[not(color:color-mix(in_oklch,currentColor_50%,transparent))]:border-current supports-[not(color:color-mix(in_oklch,currentColor_50%,transparent))]:border-r-transparent',
         className
       )}
       style={{

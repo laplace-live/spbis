@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
+
+import type { DecodeResult, ProtobufPart as ProtobufPartType } from '@/lib/types'
 
 import { TYPES } from '@/lib/protobufDecoder'
-import { DecodeResult, ProtobufPart as ProtobufPartType } from '@/lib/types'
 
 import { bufferToPrettyHex } from '@/utils/hex'
 
@@ -34,14 +35,14 @@ function ProtobufDisplay(props: ProtobufDisplayProps) {
   const { value } = props
 
   const messages = splitDelimitedPartsInMessages(value.parts)
-  const messageElements = messages.map((messageParts, i) => {
-    return messageParts.map((part, j) => {
-      return <ProtobufPart key={`${i}-${j}`} part={part} />
+  const messageElements = messages.map(messageParts => {
+    return messageParts.map(part => {
+      return <ProtobufPart key={part.byteRange.join('-')} part={part} />
     })
   })
 
   const leftOver = value.leftOver.length ? (
-    <div className='bg-fg/5 text-fg/60 mt-4 rounded-md border p-3 font-mono text-sm'>
+    <div className='mt-4 rounded-md border bg-fg/5 p-3 font-mono text-fg/60 text-sm'>
       Left over bytes: {bufferToPrettyHex(value.leftOver)}
     </div>
   ) : null
@@ -51,7 +52,7 @@ function ProtobufDisplay(props: ProtobufDisplayProps) {
       <ProtobufSchemaInference decodeResult={value} />
 
       {messageElements.map((els, i) => (
-        <Table key={`message-${i}`} className='font-mono'>
+        <Table key={`message-${messages[i][0].byteRange.join('-')}`} className='font-mono'>
           <TableHeader>
             <TableRow>
               <TableHead>Byte Range</TableHead>

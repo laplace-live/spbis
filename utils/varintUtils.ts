@@ -1,4 +1,4 @@
-import { VarintDecodeResult } from '@/lib/types'
+import type { VarintDecodeResult } from '@/lib/types'
 
 export function decodeVarint(buffer: Buffer, offset: number): VarintDecodeResult {
   let res = 0n

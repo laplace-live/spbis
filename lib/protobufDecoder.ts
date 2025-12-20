@@ -1,4 +1,4 @@
-import { DecodeResult, ProtobufPart, TYPES, WireType } from '@/lib/types'
+import { type DecodeResult, type ProtobufPart, TYPES, type WireType } from '@/lib/types'
 
 import { decodeVarint } from '@/utils/varintUtils'
 
@@ -50,7 +50,7 @@ class BufferReader {
   checkByte(length: number) {
     const bytesAvailable = this.leftBytes()
     if (length > bytesAvailable) {
-      throw new Error('Not enough bytes left. Requested: ' + length + ' left: ' + bytesAvailable)
+      throw new Error(`Not enough bytes left. Requested: ${length} left: ${bytesAvailable}`)
     }
   }
 
@@ -107,7 +107,7 @@ export function decodeProto(buffer: Buffer, parseDelimited?: boolean): DecodeRes
       } else if (type === TYPES.FIXED64) {
         value = reader.readBuffer(8)
       } else {
-        throw new Error('Unknown type: ' + type)
+        throw new Error(`Unknown type: ${type}`)
       }
       byteRange.push(reader.offset)
 

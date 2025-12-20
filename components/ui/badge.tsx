@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
 import { Slot, Slottable } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+import type { HTMLAttributes } from 'react'
 
 import { cn } from '@/lib/cn'
 
@@ -57,9 +57,9 @@ const badgeVariantsConfig = {
 const dotVariants = cva('absolute top-1/2 -translate-y-1/2 rounded-full', {
   variants: {
     size: {
-      default: 'size-2 left-1.5',
-      lg: 'size-2 left-1.5',
-      sm: 'size-1.5 left-1',
+      default: 'left-1.5 size-2',
+      lg: 'left-1.5 size-2',
+      sm: 'left-1 size-1.5',
     },
     tint: {
       default: 'bg-gray-500',
@@ -93,35 +93,35 @@ const dotVariants = cva('absolute top-1/2 -translate-y-1/2 rounded-full', {
 })
 
 const badgeVariants = cva(
-  'inline-flex items-center uppercase justify-center rounded-full border border-solid border-current font-medium',
+  'inline-flex items-center justify-center rounded-full border border-current border-solid font-medium uppercase',
   {
     variants: badgeVariantsConfig,
     compoundVariants: [
-      { variant: 'solid', tint: 'default', className: 'bg-gray-500 border-gray-500 text-bg' },
-      { variant: 'solid', tint: 'accent', className: 'bg-ac border-ac text-bg' },
-      { variant: 'solid', tint: 'red', className: 'bg-red-500 border-red-500 text-bg' },
-      { variant: 'solid', tint: 'orange', className: 'bg-orange-500 border-orange-500 text-bg' },
-      { variant: 'solid', tint: 'amber', className: 'bg-amber-500 border-amber-500 text-bg' },
-      { variant: 'solid', tint: 'yellow', className: 'bg-yellow-500 border-yellow-500 text-bg' },
-      { variant: 'solid', tint: 'lime', className: 'bg-lime-500 border-lime-500 text-bg' },
-      { variant: 'solid', tint: 'green', className: 'bg-green-500 border-green-500 text-bg' },
-      { variant: 'solid', tint: 'emerald', className: 'bg-emerald-500 border-emerald-500 text-bg' },
-      { variant: 'solid', tint: 'teal', className: 'bg-teal-500 border-teal-500 text-bg' },
-      { variant: 'solid', tint: 'cyan', className: 'bg-cyan-500 border-cyan-500 text-bg' },
-      { variant: 'solid', tint: 'sky', className: 'bg-sky-500 border-sky-500 text-bg' },
-      { variant: 'solid', tint: 'blue', className: 'bg-blue-500 border-blue-500 text-bg' },
-      { variant: 'solid', tint: 'indigo', className: 'bg-indigo-500 border-indigo-500 text-bg' },
-      { variant: 'solid', tint: 'violet', className: 'bg-violet-500 border-violet-500 text-bg' },
-      { variant: 'solid', tint: 'purple', className: 'bg-purple-500 border-purple-500 text-bg' },
-      { variant: 'solid', tint: 'fuchsia', className: 'bg-fuchsia-500 border-fuchsia-500 text-bg' },
-      { variant: 'solid', tint: 'pink', className: 'bg-pink-500 border-pink-500 text-bg' },
-      { variant: 'solid', tint: 'rose', className: 'bg-rose-500 border-rose-500 text-bg' },
-      { variant: 'solid', tint: 'dark', className: 'bg-fg border-fg text-bg' },
-      { variant: 'solid', tint: 'white', className: 'bg-white border-white text-black' },
-      { variant: 'solid', tint: 'black', className: 'bg-black border-black text-white' },
+      { variant: 'solid', tint: 'default', className: 'border-gray-500 bg-gray-500 text-bg' },
+      { variant: 'solid', tint: 'accent', className: 'border-ac bg-ac text-bg' },
+      { variant: 'solid', tint: 'red', className: 'border-red-500 bg-red-500 text-bg' },
+      { variant: 'solid', tint: 'orange', className: 'border-orange-500 bg-orange-500 text-bg' },
+      { variant: 'solid', tint: 'amber', className: 'border-amber-500 bg-amber-500 text-bg' },
+      { variant: 'solid', tint: 'yellow', className: 'border-yellow-500 bg-yellow-500 text-bg' },
+      { variant: 'solid', tint: 'lime', className: 'border-lime-500 bg-lime-500 text-bg' },
+      { variant: 'solid', tint: 'green', className: 'border-green-500 bg-green-500 text-bg' },
+      { variant: 'solid', tint: 'emerald', className: 'border-emerald-500 bg-emerald-500 text-bg' },
+      { variant: 'solid', tint: 'teal', className: 'border-teal-500 bg-teal-500 text-bg' },
+      { variant: 'solid', tint: 'cyan', className: 'border-cyan-500 bg-cyan-500 text-bg' },
+      { variant: 'solid', tint: 'sky', className: 'border-sky-500 bg-sky-500 text-bg' },
+      { variant: 'solid', tint: 'blue', className: 'border-blue-500 bg-blue-500 text-bg' },
+      { variant: 'solid', tint: 'indigo', className: 'border-indigo-500 bg-indigo-500 text-bg' },
+      { variant: 'solid', tint: 'violet', className: 'border-violet-500 bg-violet-500 text-bg' },
+      { variant: 'solid', tint: 'purple', className: 'border-purple-500 bg-purple-500 text-bg' },
+      { variant: 'solid', tint: 'fuchsia', className: 'border-fuchsia-500 bg-fuchsia-500 text-bg' },
+      { variant: 'solid', tint: 'pink', className: 'border-pink-500 bg-pink-500 text-bg' },
+      { variant: 'solid', tint: 'rose', className: 'border-rose-500 bg-rose-500 text-bg' },
+      { variant: 'solid', tint: 'dark', className: 'border-fg bg-fg text-bg' },
+      { variant: 'solid', tint: 'white', className: 'border-white bg-white text-black' },
+      { variant: 'solid', tint: 'black', className: 'border-black bg-black text-white' },
 
       // Dot variant padding adjustments
-      { variant: 'dot', size: 'default', className: 'pl-[1.125rem]' },
+      { variant: 'dot', size: 'default', className: 'pl-4.5' },
       { variant: 'dot', size: 'sm', className: 'pl-[0.85rem]' },
       { variant: 'dot', size: 'lg', className: 'pl-5' },
     ],

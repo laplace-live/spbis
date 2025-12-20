@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div className='space-y-3 p-4'>
-      <h1 className='text-2xl font-bold'>LAPLACE SPBIS</h1>
+      <h1 className='font-bold text-2xl'>LAPLACE SPBIS</h1>
 
       <p>
         Schemaless Protocol Buffers Inspecting System.{' '}

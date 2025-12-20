@@ -1,5 +1,6 @@
+import type { DecodeResult, ProtobufPart } from '@/lib/types'
+
 import { decodeProto, TYPES } from '@/lib/protobufDecoder'
-import { DecodeResult, ProtobufPart } from '@/lib/types'
 
 interface FieldInfo {
   fieldNumber: number

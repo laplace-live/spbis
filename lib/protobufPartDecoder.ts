@@ -1,4 +1,4 @@
-import { DecodedValue } from '@/lib/types'
+import type { DecodedValue } from '@/lib/types'
 
 import { bufferLeToBeHex, bufferToPrettyHex } from '@/utils/hex'
 import { interpretAsSignedType, interpretAsTwosComplement } from '@/utils/intUtils'
@@ -23,7 +23,7 @@ export function decodeFixed32(value: Buffer): DecodedValue[] {
 
 export function decodeFixed64(value: Buffer): DecodedValue[] {
   const floatValue = value.readDoubleLE(0)
-  const uintValue = BigInt('0x' + bufferLeToBeHex(value))
+  const uintValue = BigInt(`0x${bufferLeToBeHex(value)}`)
   const intValue = interpretAsTwosComplement(uintValue, 64)
 
   const result: DecodedValue[] = []
@@ -47,7 +47,7 @@ export function decodeVarintParts(value: string): DecodedValue[] {
   for (const bits of [8, 16, 32, 64]) {
     const intVal = interpretAsTwosComplement(uintVal, bits)
     if (intVal !== uintVal) {
-      result.push({ type: 'int' + bits, value: intVal.toString() })
+      result.push({ type: `int${bits}`, value: intVal.toString() })
     }
   }
 

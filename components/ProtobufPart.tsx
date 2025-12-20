@@ -1,8 +1,9 @@
-import React from 'react'
+import type React from 'react'
+
+import type { ProtobufPart as ProtobufPartType } from '@/lib/types'
 
 import { decodeProto, TYPES, typeToString } from '@/lib/protobufDecoder'
 import { decodeFixed32, decodeFixed64, decodeStringOrBytes, decodeVarintParts } from '@/lib/protobufPartDecoder'
-import { ProtobufPart as ProtobufPartType } from '@/lib/types'
 
 import ProtobufDisplay from '@/components/ProtobufDisplay'
 import { TableCell, TableRow } from '@/components/ui/table'
@@ -18,7 +19,7 @@ function ProtobufVarintPart(props: ProtobufVarintPartProps) {
   return (
     <>
       {decoded.map((d, i) => (
-        <span key={i}>
+        <span key={`${d.type}-${d.value}-${i}`}>
           As {d.type}: {d.value}
           <br />
         </span>
@@ -47,7 +48,7 @@ function ProtobufFixed64Part(props: ProtobufFixed64PartProps) {
   return (
     <>
       {decoded.map((d, i) => (
-        <span key={i}>
+        <span key={`${d.type}-${d.value}-${i}`}>
           As {d.type}: {d.value}
           <br />
         </span>
@@ -67,7 +68,7 @@ function ProtobufFixed32Part(props: ProtobufFixed32PartProps) {
   return (
     <>
       {decoded.map((d, i) => (
-        <span key={i}>
+        <span key={`${d.type}-${d.value}-${i}`}>
           As {d.type}: {d.value}
           <br />
         </span>
@@ -106,7 +107,7 @@ function getProtobufPart(part: ProtobufPartType): [React.ReactNode, string?] {
       }
       return ['Invalid fixed32 value']
     case TYPES.MSG_LEN_DELIMITER:
-      return ['Message length: ' + part.value + ' bytes']
+      return [`Message length: ${part.value} bytes`]
     default:
       return ['Unknown type']
   }
