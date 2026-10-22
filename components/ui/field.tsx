@@ -66,7 +66,7 @@ const fieldVariants = cva('group/field flex w-full gap-1.5 data-[invalid=true]:t
         'has-[>[data-slot=field-content]]:items-start has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
       ],
       responsive: [
-        '@md/field-group:flex-row flex-col @md/field-group:items-center @md/field-group:[&>*]:w-auto [&>*]:w-full [&>.sr-only]:w-auto',
+        'flex-col @md/field-group:flex-row @md/field-group:items-center [&>*]:w-full @md/field-group:[&>*]:w-auto [&>.sr-only]:w-auto',
         '@md/field-group:[&>[data-slot=field-label]]:flex-auto',
         '@md/field-group:has-[>[data-slot=field-content]]:items-start @md/field-group:has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px',
       ],
@@ -111,7 +111,7 @@ function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>)
       className={cn(
         'group/field-label peer/field-label flex w-fit gap-1 leading-snug group-data-[disabled=true]/field:opacity-50',
         'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border has-[>[data-slot=field]]:border-fg/30 [&>*]:data-[slot=field]:p-4',
-        'has-data-[state=checked]:has-[>[data-slot=field]]:border-ac has-data-[state=checked]:border-ac has-data-[state=checked]:bg-ac/5',
+        'has-data-[state=checked]:border-ac has-data-[state=checked]:bg-ac/5 has-data-[state=checked]:has-[>[data-slot=field]]:border-ac',
         className
       )}
       {...props}
@@ -124,7 +124,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot='field-label'
       className={cn(
-        'flex w-fit items-center gap-2 font-medium text-sm leading-snug group-data-[disabled=true]/field:opacity-50',
+        'flex w-fit items-center gap-2 text-sm leading-snug font-medium group-data-[disabled=true]/field:opacity-50',
         className
       )}
       {...props}
@@ -137,9 +137,9 @@ function FieldDescription({ className, ...props }: React.ComponentProps<'p'>) {
     <p
       data-slot='field-description'
       className={cn(
-        'font-normal text-fg/60 text-sm leading-normal group-has-[[data-orientation=horizontal]]/field:text-balance',
-        'nth-last-2:-mt-1 last:mt-0 [[data-variant=legend]+&]:-mt-1.5',
-        '[&>a:hover]:text-fg [&>a]:underline [&>a]:underline-offset-2',
+        'text-sm leading-normal font-normal text-fg/60 group-has-[[data-orientation=horizontal]]/field:text-balance',
+        'last:mt-0 nth-last-2:-mt-1 [[data-variant=legend]+&]:-mt-1.5',
+        '[&>a]:underline [&>a]:underline-offset-2 [&>a:hover]:text-fg',
         className
       )}
       {...props}
@@ -194,7 +194,7 @@ function FieldError({
   }
 
   return (
-    <div role='alert' data-slot='field-error' className={cn('font-normal text-rose-500 text-sm', className)} {...props}>
+    <div role='alert' data-slot='field-error' className={cn('text-sm font-normal text-rose-500', className)} {...props}>
       {content}
     </div>
   )

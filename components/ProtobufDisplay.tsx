@@ -42,7 +42,7 @@ function ProtobufDisplay(props: ProtobufDisplayProps) {
   })
 
   const leftOver = value.leftOver.length ? (
-    <div className='mt-4 rounded-md border bg-fg/5 p-3 font-mono text-fg/60 text-sm'>
+    <div className='mt-4 rounded-md border bg-fg/5 p-3 font-mono text-sm text-fg/60'>
       Left over bytes: {bufferToPrettyHex(value.leftOver)}
     </div>
   ) : null

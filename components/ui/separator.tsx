@@ -24,7 +24,7 @@ function Separator({
       data-extended={extended}
       data-position={position}
       className={cn(
-        'relative flex items-center gap-1.5 whitespace-nowrap text-xs',
+        'relative flex items-center gap-1.5 text-xs whitespace-nowrap',
 
         // Horizontal mode needs to support inline text, use pseudo elements for lines
         'data-[orientation=horizontal]:after:bg-fg/20 data-[orientation=horizontal]:after:content-[""]',

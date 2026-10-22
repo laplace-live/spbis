@@ -93,7 +93,7 @@ const dotVariants = cva('absolute top-1/2 -translate-y-1/2 rounded-full', {
 })
 
 const badgeVariants = cva(
-  'inline-flex items-center justify-center rounded-full border border-current border-solid font-medium uppercase',
+  'inline-flex items-center justify-center rounded-full border border-solid border-current font-medium uppercase',
   {
     variants: badgeVariantsConfig,
     compoundVariants: [

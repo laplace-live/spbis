@@ -24,7 +24,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {
   return (
     <tfoot
       data-slot='table-footer'
-      className={cn('border-fg/20 border-t bg-fg/5 font-medium [&>tr]:last:border-b-0', className)}
+      className={cn('border-t border-fg/20 bg-fg/5 font-medium [&>tr]:last:border-b-0', className)}
       {...props}
     />
   )
@@ -35,7 +35,7 @@ function TableRow({ className, ...props }: React.ComponentProps<'tr'>) {
     <tr
       data-slot='table-row'
       className={cn(
-        'border-fg/20 border-b transition-colors hover:bg-ac/5 data-[state=selected]:bg-ac/10 data-[state=selected]:text-ac',
+        'border-b border-fg/20 transition-colors hover:bg-ac/5 data-[state=selected]:bg-ac/10 data-[state=selected]:text-ac',
         className
       )}
       {...props}
@@ -64,7 +64,7 @@ function TableCell({ className, ...props }: React.ComponentProps<'td'>) {
 }
 
 function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) {
-  return <caption data-slot='table-caption' className={cn('mt-4 text-fg/60 text-sm', className)} {...props} />
+  return <caption data-slot='table-caption' className={cn('mt-4 text-sm text-fg/60', className)} {...props} />
 }
 
 export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption }

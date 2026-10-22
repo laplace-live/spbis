@@ -53,7 +53,7 @@ const buttonVariantsConfig = {
 }
 
 const buttonVariants = cva(
-  'focus-ring inline-flex appearance-none items-center justify-center gap-1 whitespace-nowrap font-medium disabled:cursor-not-allowed disabled:opacity-50',
+  'inline-flex appearance-none items-center justify-center gap-1 font-medium whitespace-nowrap focus-ring disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: buttonVariantsConfig,
     // prettier-ignore

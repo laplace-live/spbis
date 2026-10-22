@@ -30,10 +30,10 @@ function PopoverContent({
         sideOffset={sideOffset}
         collisionPadding={5}
         className={cn(
-          'floating w-fit rounded-md p-3 text-base text-fg outline-hidden',
+          'w-fit rounded-md p-3 text-base text-fg floating outline-hidden',
           'max-h-[var(--radix-popover-content-available-height)] overflow-y-auto',
           'max-w-[var(--radix-popover-content-available-width)]',
-          'data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out',
+          'data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95',
           '[&>hr]:-mx-3 [&>hr]:my-2',
           // pointer-events-auto is necessary to make the popover content clickable due to a Radix UI bug.
           // See: https://github.com/radix-ui/primitives/issues/3142
